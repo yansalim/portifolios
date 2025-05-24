@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Briefcase, Cpu, Lightbulb, Linkedin, Github, Mail, Phone, MapPin, User, Brain, Code, Database, Cloud, ShieldCheck, Users, BookOpen, Award, MessageSquare, Send, Menu, X, Settings, Zap, GitMerge, Server, Network } from 'lucide-react';
 
-// Dados do Portfólio (atualizados com base no currículo "YAN SALIM 2025.pdf")
+
 const portfolioData = {
   name: "Yan Salim",
   role: "Tech Leader | DevSecOps | Analista de Segurança da Informação",
   contact: {
-    email: "yan_salim@hotmail.com", // Email atualizado
+    email: "yan_salim@hotmail.com", 
     phone: "+55 34 99172-3233",
     location: "Araguari - MG, Brasil",
-    linkedin: "https://www.linkedin.com/in/yansalim/", // Mantenha ou atualize seu link real
-    github: "https://github.com/yansalim", // Mantenha ou atualize seu link real
+    linkedin: "https://www.linkedin.com/in/yan-salim-3a796160/", 
+    github: "https://github.com/yansalim",
   },
   professionalSummary: "Profissional com 10 anos de experiência em projetos inovadores, atuando como Tech Leader, DevSecOps e Analista de Segurança da Informação. Especialista em desenvolvimento ágil (Scrum), implementação de soluções em nuvem (AWS, Azure, GCP), automação de processos (Docker, Kubernetes, CI/CD) e segurança cibernética (firewalls, testes de intrusão, conformidade LGPD). Capacidade de liderança, gestão de equipes e análise técnica. Experiência em consultoria de inovação, análise de requisitos e coordenação de projetos para otimização de ambientes e entrega de soluções escaláveis.",
   skills: [
-    // Competências do novo currículo
+    
     { name: "Consultoria de Inovação", icon: <Lightbulb size={20} className="mr-2" />, category: "Gestão e Liderança" },
     { name: "Liderança de Equipes", icon: <Users size={20} className="mr-2" />, category: "Gestão e Liderança" },
     { name: "Desenvolvimento Ágil (Scrum)", icon: <Zap size={20} className="mr-2" />, category: "Metodologias" },
@@ -38,16 +38,16 @@ const portfolioData = {
     { name: "Infraestrutura Híbrida", icon: <Server size={20} className="mr-2" />, category: "Infraestrutura" },
     { name: "Redes Ubiquiti", icon: <Network size={20} className="mr-2" />, category: "Infraestrutura" },
     { name: "ERP Sankhya (Suporte)", icon: <Database size={20} className="mr-2" />, category: "Sistemas" },
-    // Adicionar outras habilidades mencionadas nas experiências se necessário
+    // Adicionar aqui novas habilidades
   ],
-  projects: [ // Removido os projetos de IA, pois não estão detalhados no novo CV.
-              // Pode ser adicionado de volta ou novos projetos se o usuário desejar.
+  projects: [ 
+              
   ],
   experiences: [
     {
       role: "Tech Leader",
       company: "Crosoften, Uberlândia",
-      period: "1 ano (Recente)", // Ajustar conforme data atual, ex: "2024 - Atual" ou "2024 - 2025"
+      period: "2 anos (Recente)", 
       responsibilities: [
         "Liderança de equipe no desenvolvimento de projetos com metodologias ágeis (Scrum).",
         "Revisão de código em Node.js, Angular, Android e iOS; implementação de melhorias técnicas.",
@@ -140,33 +140,33 @@ const portfolioData = {
   ],
   education: [
     {
-      course: "Ciência da Computação", // Simplificado
-      institution: "Cruzeiro do Sul (EAD - Cursando)", // Adicionado instituição e status
+      course: "Ciência da Computação", 
+      institution: "Estácio (EAD - Cursando)", // Adicionado instituição e status
       icon: <BookOpen size={24} className="text-indigo-500" />
     }
-    // Removido "Curso de Engenharia de IA com Python" pois não está no novo CV.
+
   ],
   certifications: [
     { name: "Especialista Ciberataque - IGTI", icon: <Award size={20} className="mr-2 text-teal-500" /> },
     { name: "Especialista Segurança Cibernética - IGTI", icon: <ShieldCheck size={20} className="mr-2 text-teal-500" /> },
     { name: "Scrum Foundation Professional Certificate (SFPC) - Certiprof", icon: <Users size={20} className="mr-2 text-teal-500" /> }
   ],
-  languages: [ // Mantido do currículo anterior, pois não foi especificado no novo.
+  languages: [ 
     { name: "Português", level: "Nativo" },
     { name: "Inglês", level: "Intermediário (em desenvolvimento)" }
   ],
-  // professionalObjective e differentials foram removidos pois o novo resumo é mais completo.
+  
 };
 
 // Componente de Navegação
 const Navbar = ({ onNavigate, currentSection }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // Removida a seção "Projetos" do menu se não houver projetos.
+  
   const navItems = ["Início", "Sobre", "Habilidades", ...(portfolioData.projects && portfolioData.projects.length > 0 ? ["Projetos"] : []), "Experiência", "Educação", "Contato"];
 
 
   const handleItemClick = (item) => {
-    onNavigate(item.toLowerCase().replace('ê', 'e')); // Normaliza 'Experiência' para 'experiencia'
+    onNavigate(item.toLowerCase().replace('ê', 'e')); 
     setIsOpen(false);
   };
   
@@ -209,7 +209,7 @@ const Navbar = ({ onNavigate, currentSection }) => {
   );
 };
 
-// Componente Seção Herói
+// Componente hero section
 const HeroSection = ({ onNavigate }) => (
   <section id="início" className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900 text-white flex flex-col justify-center items-center text-center p-8 pt-24 md:pt-32"> {/* Aumentado padding-top */}
     <img 
@@ -247,7 +247,7 @@ const HeroSection = ({ onNavigate }) => (
   </section>
 );
 
-// Componente Genérico de Seção
+// Componente session
 const Section = ({ id, title, children, icon }) => (
   <section id={id} className="py-16 md:py-24 px-4 md:px-8 bg-gray-100 dark:bg-gray-800 odd:bg-white dark:odd:bg-gray-900">
     <div className="container mx-auto max-w-5xl">
@@ -260,22 +260,22 @@ const Section = ({ id, title, children, icon }) => (
   </section>
 );
 
-// Componente Sobre Mim
+// Component about me
 const AboutSection = () => (
   <Section id="sobre" title="Sobre Mim" icon={<User />}>
     <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-xl text-center md:text-left">
       <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
         {portfolioData.professionalSummary}
       </p>
-      {/* Removido professionalObjective e differentials, pois o resumo é mais completo */}
+      {}
     </div>
   </Section>
 );
 
-// Componente Habilidades
+
 const SkillsSection = () => {
   const skillCategories = [...new Set(portfolioData.skills.map(skill => skill.category))].sort((a,b) => {
-    // Ordem personalizada das categorias
+    // order category
     const order = ["Gestão e Liderança", "Metodologias", "Segurança", "Cloud & DevOps", "Desenvolvimento", "Infraestrutura", "Sistemas"];
     return order.indexOf(a) - order.indexOf(b);
   });
@@ -313,7 +313,7 @@ const SkillsSection = () => {
   );
 };
 
-// Componente Card de Projeto (mantido caso o usuário queira adicionar projetos)
+// component cards
 const ProjectCard = ({ project }) => (
   <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 flex flex-col h-full">
     <div className="p-6 flex-grow">
@@ -336,10 +336,10 @@ const ProjectCard = ({ project }) => (
   </div>
 );
 
-// Componente Projetos (será renderizado apenas se houver projetos)
+// components projects
 const ProjectsSection = () => {
   if (!portfolioData.projects || portfolioData.projects.length === 0) {
-    return null; // Não renderiza a seção se não houver projetos
+    return null; //no render
   }
   return (
     <Section id="projetos" title="Projetos em Destaque" icon={<Briefcase />}>
@@ -353,7 +353,7 @@ const ProjectsSection = () => {
 };
 
 
-// Componente Experiência
+//componet Experience
 const ExperienceSection = () => (
   <Section id="experiencia" title="Experiência Profissional" icon={<Briefcase />}>
     <div className="space-y-12">
@@ -376,7 +376,7 @@ const ExperienceSection = () => (
   </Section>
 );
 
-// Componente Educação e Certificações
+// component education  
 const EducationSection = () => (
   <Section id="educação" title="Educação e Certificações" icon={<BookOpen />}>
     <div className="grid md:grid-cols-2 gap-12">
@@ -409,7 +409,7 @@ const EducationSection = () => (
   </Section>
 );
 
-// Componente Contato
+// component contact
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -424,9 +424,9 @@ const ContactSection = () => {
     setIsSubmitting(true);
     setSubmitMessage('');
 
-    // Simulação de envio de formulário
+    // Simulation email service
     try {
-      // Aqui você integraria com um serviço de email ou backend
+      
       // Ex: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) });
       console.log("Form data submitted:", formData);
       await new Promise(resolve => setTimeout(resolve, 1500)); // Simula delay da API
@@ -512,7 +512,7 @@ const ContactSection = () => {
 };
 
 
-// Componente Rodapé
+// component footer
 const Footer = () => (
   <footer className="bg-gray-900 text-gray-400 text-center p-8">
     <p>&copy; {new Date().getFullYear()} {portfolioData.name}. Todos os direitos reservados.</p>
@@ -520,12 +520,12 @@ const Footer = () => (
   </footer>
 );
 
-// Componente Principal da Aplicação
+// component first
 export default function App() {
   const [currentSection, setCurrentSection] = useState('início');
   const [theme, setTheme] = useState('light'); // 'light' or 'dark'
 
-  // Efeito para aplicar o tema e observar a seção atual
+  // theme effect
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -537,12 +537,12 @@ export default function App() {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Normaliza o ID da seção para correspondência (ex: 'experiência' -> 'experiencia')
+            //normalize
             setCurrentSection(entry.target.id.replace('ê', 'e'));
           }
         });
       },
-      { rootMargin: "-40% 0px -60% 0px" } // Ajustado para melhor detecção, priorizando o que está mais acima na tela
+      { rootMargin: "-40% 0px -60% 0px" } // ajust margin
     );
 
     const sections = document.querySelectorAll('section[id]');
@@ -555,7 +555,7 @@ export default function App() {
     const normalizedSectionId = sectionId.replace('ê', 'e');
     const element = document.getElementById(normalizedSectionId);
     if (element) {
-      const navbarHeight = document.querySelector('nav')?.offsetHeight || 72; // Ajustado para altura da navbar
+      const navbarHeight = document.querySelector('nav')?.offsetHeight || 72; // ajust navbar height
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
       
@@ -598,7 +598,7 @@ export default function App() {
   );
 }
 
-// Estilos CSS adicionais (para animações e pequenos ajustes)
+// css animation
 const GlobalStyles = () => (
   <style jsx global>{`
     /* Animações de Fade In */
@@ -627,17 +627,3 @@ const GlobalStyles = () => (
     }
   `}</style>
 );
-
-// Nota: Para que o dark mode do Tailwind funcione,
-// você precisa ter `darkMode: 'class'` no seu arquivo `tailwind.config.js`.
-// Exemplo:
-// module.exports = {
-//   darkMode: 'class',
-//   content: [
-//     "./src/**/*.{js,jsx,ts,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
